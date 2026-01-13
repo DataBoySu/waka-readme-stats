@@ -9,6 +9,7 @@ concurrency:
 
 permissions:
   contents: read
+  issues: write
 
 jobs:
   ci:
@@ -112,5 +113,5 @@ jobs:
         with:
           type: create
           body: ${{ steps.make-stats.outputs.README_CONTENT }}
-          issue_number: ${{ github.event.number }}
+          issue_number: ${{ github.event.pull_request.number }}
           token: ${{ secrets.GITHUB_TOKEN }}
